@@ -10,10 +10,14 @@ provider "aws" {
   s3_use_path_style = true
 
   endpoints {
-    s3 = "http://localhost:4566"
+    s3  = "http://localhost:4566"
+    iam = "http://localhost:4566"
+    rds = "http://localhost:4566"
   }
 }
 
 resource "aws_s3_bucket" "youfund_data" {
   bucket = "youfund-data"
 }
+
+
