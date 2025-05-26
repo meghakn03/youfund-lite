@@ -20,5 +20,3 @@ resource "aws_s3_bucket" "youfund_data" {
   bucket = "youfund-data"
 }
 
-# Test workflow trigger
-

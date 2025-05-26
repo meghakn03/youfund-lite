@@ -2,9 +2,13 @@ name: Terraform Provisioning
 
 on:
   push:
+    branches:
+      - '**'
     paths:
       - 'infra/terraform/**'
   pull_request:
+    branches:
+      - '**'
     paths:
       - 'infra/terraform/**'
   workflow_dispatch:
