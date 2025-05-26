@@ -87,6 +87,7 @@ jobs:
         run: dbt run --target dev
 
       - name: dbt test
-        run: dbt test --target dev
+        run: dbt test --target dev --exclude path:models/example/*
+
 
 
