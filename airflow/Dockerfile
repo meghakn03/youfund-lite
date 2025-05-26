@@ -15,4 +15,6 @@ RUN pip install --no-cache-dir \
     sqlalchemy \
     faker \
     scikit-learn \
-    xgboost
+    xgboost \
+    boto3 \
+    psycopg2-binary 
