@@ -1,0 +1,16 @@
+youfund_dbt:  # <- your dbt project name
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres  # Use 'host.docker.internal' if running dbt outside Docker
+      user: airflow
+      password: airflow
+      port: 5432
+      dbname: airflow
+      schema: public  # Or your custom schema
+      threads: 4
+      keepalives_idle: 0
+      sslmode: prefer
+
+

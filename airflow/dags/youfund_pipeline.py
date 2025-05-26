@@ -1,5 +1,6 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.operators.bash import BashOperator
 from datetime import datetime
 import random
 from faker import Faker
@@ -54,9 +55,8 @@ def train_model_s3(**ctx):
     pipe.fit(X_train, y_train)
     preds = pipe.predict(X_test)
     print(classification_report(y_test, preds))
-    # write scores
     df_scores = df.copy()
-    df_scores["risk_score"] = pipe.predict_proba(df.drop(columns=["merchant_id", "name", "has_defaulted_before"]))[:,1]
+    df_scores["risk_score"] = pipe.predict_proba(X)[:,1]
     upload_df(df_scores[["merchant_id", "risk_score"]], BUCKET, "risk_scores.csv")
 
 def merge_scores_s3(**ctx):
@@ -66,9 +66,7 @@ def merge_scores_s3(**ctx):
     upload_df(merged, BUCKET, "merchants_with_scores.csv")
 
 def load_to_postgres(**ctx):
-    # Download merged
     merged = download_df(BUCKET, "merchants_with_scores.csv")
-    # Connect to Postgres (Docker Compose service)
     engine = create_engine("postgresql+psycopg2://airflow:airflow@postgres:5432/airflow")
     merged.to_sql("merchants", engine, if_exists="replace", index=False)
     print("✅ Loaded merged data into Postgres")
@@ -78,4 +76,11 @@ with DAG("youfund_etl_pipeline", default_args=default_args, schedule_interval=No
     t2 = PythonOperator(task_id="train_model", python_callable=train_model_s3)
     t3 = PythonOperator(task_id="merge_scores", python_callable=merge_scores_s3)
     t4 = PythonOperator(task_id="load_to_postgres", python_callable=load_to_postgres)
-    t1 >> t2 >> t3 >> t4
+
+    # 👇 Add this step to run dbt
+    t5 = BashOperator(
+        task_id="run_dbt_models",
+        bash_command="cd /opt/airflow/youfund_dbt && dbt run"
+    )
+
+    t1 >> t2 >> t3 >> t4 >> t5

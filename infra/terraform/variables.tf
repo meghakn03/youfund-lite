@@ -1,17 +1,3 @@
-terraform {
-  required_providers {
-    docker = {
-      source  = "kreuzwerker/docker"
-      version = "~> 2.20"
-    }
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-
-  required_version = ">= 1.0"
-}
 provider "docker" {}
 
 variable "db_username" {
@@ -24,4 +10,11 @@ variable "db_password" {
 
 variable "db_name" {
   default = "youfund"
+}
+
+# Currently unused, but helpful for future scalability
+variable "bucket_name" {
+  description = "The name of the S3 bucket to create"
+  type        = string
+  default     = "youfund-data"
 }
