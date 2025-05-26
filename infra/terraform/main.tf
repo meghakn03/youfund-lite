@@ -18,5 +18,14 @@ provider "aws" {
 
 resource "aws_s3_bucket" "youfund_data" {
   bucket = "youfund-data"
+
+  tags = {
+    Name        = "YouFund Data Bucket"
+    Environment = "dev"
+  }
+}
+
+output "bucket_name" {
+  value = aws_s3_bucket.youfund_data.bucket
 }
 
