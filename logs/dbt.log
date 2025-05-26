@@ -26,3 +26,69 @@ Happy modeling!
 [0m18:27:51.593689 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D6C65B7C80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D6C68487A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D6C611BEC0>]}
 [0m18:27:51.594697 [debug] [MainThread]: Flushing usage events
 [0m18:27:52.436206 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:47:11.823990 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000219907627B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021993087860>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002198FE55580>]}
+
+
+============================== 16:47:11.833816 | e8e7509f-ec65-42a4-b703-859401e659cd ==============================
+[0m16:47:11.833816 [info ] [MainThread]: Running with dbt=1.9.4
+[0m16:47:11.836324 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\megha\\.dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt init youfund_dbt', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m16:47:11.904473 [info ] [MainThread]: A project called youfund_dbt already exists here.
+[0m16:47:11.906485 [debug] [MainThread]: Command `dbt init` succeeded at 16:47:11.906485 after 0.51 seconds
+[0m16:47:11.907484 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021992C1A660>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000219907627B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021992D482C0>]}
+[0m16:47:11.908483 [debug] [MainThread]: Flushing usage events
+[0m16:47:13.091164 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:47:30.926062 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017E021CD430>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017E021CF680>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017E021CCFB0>]}
+
+
+============================== 16:47:30.935067 | 955381de-6300-456c-8562-11bf4e2e01dc ==============================
+[0m16:47:30.935067 [info ] [MainThread]: Running with dbt=1.9.4
+[0m16:47:30.938072 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\megha\\.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'invocation_command': 'dbt init youfund_dbt', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m16:47:30.987937 [debug] [MainThread]: Starter project path: C:\Users\megha\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\include\starter_project
+[0m16:47:31.061712 [info ] [MainThread]: 
+Your new dbt project "youfund_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m16:47:31.063291 [info ] [MainThread]: Setting up your profile.
+[0m16:49:17.121338 [error] [MainThread]: Encountered an error:
+
+[0m16:49:17.271460 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\megha\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\cli\requires.py", line 153, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\megha\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\cli\requires.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\megha\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\cli\main.py", line 477, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\megha\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\task\init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "C:\Users\megha\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\task\init.py", line 261, in setup_profile
+    adapter = self.ask_for_adapter_choice()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\megha\AppData\Local\Programs\Python\Python312\Lib\site-packages\dbt\task\init.py", line 242, in ask_for_adapter_choice
+    numeric_choice = click.prompt(prompt_msg, type=click.INT)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\megha\AppData\Local\Programs\Python\Python312\Lib\site-packages\click\termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\megha\AppData\Local\Programs\Python\Python312\Lib\site-packages\click\termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m16:49:17.274537 [debug] [MainThread]: Command `dbt init` failed at 16:49:17.273535 after 106.57 seconds
+[0m16:49:17.274537 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017E021CCFB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017E022159A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017E02297D70>]}
+[0m16:49:17.275531 [debug] [MainThread]: Flushing usage events
+[0m16:49:18.098489 [debug] [MainThread]: An error was encountered while trying to flush usage events
