@@ -52,6 +52,24 @@ jobs:
           python -m pip install --upgrade pip
           pip install dbt-postgres
 
+      - name: Setup dbt profiles
+        run: |
+          mkdir -p ~/.dbt
+          echo "
+          youfund_dbt:
+            target: dev
+            outputs:
+              dev:
+                type: postgres
+                host: localhost
+                user: airflow
+                password: airflow
+                port: 5432
+                dbname: airflow
+                schema: public
+                threads: 4
+          " > ~/.dbt/profiles.yml
+
       - name: Wait for Postgres to be ready
         run: |
           until pg_isready -h localhost -p 5432; do
@@ -63,11 +81,12 @@ jobs:
         run: dbt deps
 
       - name: dbt seed (optional)
-        run: dbt seed --profiles-dir . --target dev
+        run: dbt seed --target dev
 
       - name: dbt run
-        run: dbt run --profiles-dir . --target dev
+        run: dbt run --target dev
 
       - name: dbt test
-        run: dbt test --profiles-dir . --target dev
+        run: dbt test --target dev
+
 
